@@ -1,4 +1,5 @@
 import discord
+import json
 from discord.ext import commands
 
 class Startup(commands.Cog):
@@ -24,8 +25,11 @@ class Startup(commands.Cog):
             colour=discord.Colour.dark_purple()
         )
 
+        with open('setup.json','r') as jsonFile:
+            thumbnail = json.load(jsonFile)['help_image']
+
         embed.set_thumbnail(
-            url="https://www.nomadfoods.com/wp-content/uploads/2018/08/placeholder-1-e1533569576673.png")
+            url=thumbnail)
         embed.add_field(name="`+random`", value="Returns random image or video.", inline=False)
 
         await ctx.channel.send(embed=embed)
