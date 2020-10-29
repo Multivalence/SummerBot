@@ -26,7 +26,7 @@ class Commands(commands.Cog):
         while image in self.limited:
             self.count += 1
 
-            if self.count == 20:
+            if self.count == 30:
                 self.limited = []
                 self.count = 0
 
