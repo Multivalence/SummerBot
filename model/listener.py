@@ -6,7 +6,10 @@ class Listener(commands.Cog):
 
     def __init__(self,client):
         self.client = client
-        self.channel_id = 135157512012955649 #Change to your channel ID
+
+        with open('setup.json','r') as jsonFile:
+            self.channel_id = json.load(jsonFile)['channel_id']
+
 
     #Looks for new attachments in channel
     @commands.Cog.listener()
